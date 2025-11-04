@@ -1,91 +1,14 @@
-## 01 Cálculo de Incentivo de Beneficiário
-
-Crie um bloco PL/SQL anônimo que adicione uma taxa ao custo do procedimento com ID = 2.
-A taxa deve ser de 10% do custo total do procedimento.
-
-Entrada: ID do procedimento (fixo = 2)
-Saída: Exibir o valor total do custo atualizado com DBMS_OUTPUT.PUT_LINE.
-Use SELECT INTO para armazenar o valor total de custo.
-
-## 02 Identificadores Inválidos
-
-Crie um bloco PL/SQL que demonstre o erro gerado ao tentar referenciar uma coluna com nome incorreto (por exemplo, NOME_CLIENTE ao invés de NOME).
-Execute a consulta com e sem aspas para observar o comportamento.
-
-Saída esperada: Mostre a mensagem de erro de compilação no console.
-
-## 03 Uso de Palavra Reservada como Identificador
-
-Crie uma tabela temporária ou variável com um nome idêntico a uma palavra reservada (exemplo: DATE).
-Demonstre como declarar e usar corretamente o identificador entre aspas ("DATE") dentro do bloco PL/SQL.
-
-Saída esperada: Exibir o valor atribuído à variável "DATE".
-
-## 04 Case Sensitivity em Identificadores
-
-Crie um bloco PL/SQL que declare uma variável "BeneficiarioNome" e tente acessá-la como "BENEFICIARIONOME" e "beneficiarionome".
-Demonstre que PL/SQL não diferencia maiúsculas e minúsculas sem aspas, mas diferencia com aspas.
-
-Saída esperada: Mensagem indicando qual chamada é válida.
-
-## 05 Comentários de Linha e Bloco
-
-Escreva um bloco PL/SQL que contenha exemplos de comentários de linha única (--) e comentários de múltiplas linhas (/* ... */).
-Use um cálculo simples de custo médio de procedimentos.
-
-Saída esperada: O resultado impresso deve ser correto, e o código deve conter ambos os tipos de comentário.
-
-## 06 Declaração de Variáveis
-
-Crie um bloco PL/SQL que declare variáveis de diferentes tipos:
-
-v_nome_beneficiario VARCHAR2(100)
-
-v_custo_total NUMBER(10,2)
-
-v_data_hoje DATE
-
-Atribua valores e exiba cada um com DBMS_OUTPUT.PUT_LINE.
-
-## 07 Escopo e Visibilidade
-
-Crie um bloco PL/SQL com um bloco interno e um externo.
-No externo, declare v_status VARCHAR2(20) := 'Ativo';
-No interno, declare uma variável com o mesmo nome e valor 'Inativo'.
-Mostre que a variável interna sombrea a externa.
-
-Saída esperada: Exibir 'Inativo' dentro do bloco interno e 'Ativo' fora dele.
-
-## 08 Atualização de Dados
-
-Crie um bloco PL/SQL que aumente em 15% o valor do CUSTO do procedimento cujo ID = 10.
-Após a atualização, exiba o valor anterior e o novo.
-
-Entrada: ID do procedimento (fixo = 10)
-Saída: Custo antigo e custo atualizado.
-
-## 09 Precedência de Operadores
-
-Crie um bloco PL/SQL com expressões aritméticas usando +, -, *, /, e parênteses.
-Demonstre como a ordem de precedência afeta o resultado do cálculo de custos combinados.
-
-Saída esperada: Imprimir resultados diferentes conforme o uso ou não de parênteses.
-
-## 10 Operador IS [NOT] NULL com AND
-
-Escreva um bloco PL/SQL para criar um procedimento usando o operador "IS [NOT] NULL" e mostre que o operador AND retorna VERDADEIRO se e somente se ambos os operandos forem VERDADEIROS.
-
-Saída esperada: Imprimir TRUE caso ambos os operandos sejam verdadeiros, caso contrário FALSE
-
-## 12 Comparações com NULL
-
-Demonstre o comportamento de comparações =, <> e IS NULL.
-Crie um bloco PL/SQL que tente comparar NULL diretamente e depois usando IS NULL.
-
-Saída esperada: Mostre que NULL = NULL e NULL <> NULL retornam falso, e somente IS NULL é verdadeiro.
-
-## 13 Operador LIKE
-
-Escreva um bloco PL/SQL para descrever o uso do operador LIKE, incluindo caracteres curinga e um caractere de escape.
-
-Saída esperada: Exibir o retorno do operador LIKE (TRUE ou FALSE)
+| Nº     | Descrição | Saída Esperada |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| **01** | **Cálculo de Incentivo de Beneficiário** — Crie um bloco PL/SQL anônimo que adicione uma taxa de **10%** ao custo do procedimento com **ID = 2**. Use `SELECT INTO` para armazenar o valor e exiba o novo custo com `DBMS_OUTPUT.PUT_LINE`. | `Custo atualizado: 1100.00`                                            |
+| **02** | **Identificadores Inválidos** — Crie um bloco PL/SQL que demonstre o erro ao referenciar uma coluna inexistente (`NOME_CLIENTE` em vez de `NOME`). Execute com e sem aspas para observar o comportamento.                                   | `Erro: ORA-00904: "NOME_CLIENTE": identificador inválido`              |
+| **03** | **Uso de Palavra Reservada como Identificador** — Crie uma variável com nome idêntico a uma palavra reservada (ex.: `DATE`). Mostre como declarar e usar corretamente com aspas (`"DATE"`) dentro do bloco PL/SQL.                          | `Valor da variável "DATE": 04-NOV-2025`                                |
+| **04** | **Case Sensitivity em Identificadores** — Declare uma variável `"BeneficiarioNome"` e tente acessá-la como `BENEFICIARIONOME` e `beneficiarionome`. Demonstre que PL/SQL diferencia maiúsculas/minúsculas **somente com aspas**.            | `Acesso válido: "BeneficiarioNome"; Acesso inválido: BENEFICIARIONOME` |
+| **05** | **Comentários de Linha e Bloco** — Escreva um bloco PL/SQL que contenha exemplos de comentários de linha (`--`) e de múltiplas linhas (`/* ... */`), realizando um cálculo simples de custo médio.                                          | `Custo médio calculado: 250.00`                                        |
+| **06** | **Declaração de Variáveis** — Crie variáveis de tipos diferentes: `VARCHAR2`, `NUMBER`, e `DATE`. Atribua valores e exiba todos com `DBMS_OUTPUT.PUT_LINE`.                                                                                 | `Nome: João Silva / Custo: 1200.50 / Data: 04-NOV-2025`                |
+| **07** | **Escopo e Visibilidade** — Crie um bloco PL/SQL com blocos **interno e externo**. Declare `v_status := 'Ativo'` no externo e outra `v_status := 'Inativo'` no interno. Mostre que a interna **sombrea** a externa.                         | `Dentro do bloco interno: Inativo / Fora do bloco: Ativo`              |
+| **08** | **Atualização de Dados** — Crie um bloco PL/SQL que aumente em **15%** o valor de `CUSTO` do procedimento com **ID = 10**. Exiba o valor anterior e o novo.                                                                                 | `Custo antigo: 200.00 / Custo atualizado: 230.00`                      |
+| **09** | **Precedência de Operadores** — Crie expressões aritméticas com `+`, `-`, `*`, `/`, e parênteses para mostrar a diferença na ordem de avaliação.                                                                                            | `Sem parênteses: 14 / Com parênteses: 10`                              |
+| **10** | **Operador IS [NOT] NULL com AND** — Crie um procedimento PL/SQL demonstrando o uso de `IS [NOT] NULL` e `AND`. Mostre que `AND` retorna **TRUE** somente se ambos os operandos forem verdadeiros.                                          | `Resultado: TRUE`                                                      |
+| **12** | **Comparações com NULL** — Demonstre o comportamento de `=`, `<>` e `IS NULL` comparando valores nulos. Mostre que apenas `IS NULL` retorna verdadeiro.                                                                                     | `NULL = NULL → FALSO / NULL <> NULL → FALSO / IS NULL → VERDADEIRO`    |
+| **13** | **Operador LIKE** — Escreva um bloco PL/SQL mostrando o uso de `LIKE` com curingas (`%`, `_`) e caractere de escape (`ESCAPE`).                                                                                                             | `Resultado do LIKE: TRUE`                                              |
