@@ -6,6 +6,6 @@ begin
      from procedimento
     where id = 2;
    custo_atualizado := custo_atualizado * 1.10;
-   dbms_output.put_line('O custo é de ' || custo_atualizado);
+   dbms_output.put_line('Custo atualizado: ' || custo_atualizado);
 end;
 /

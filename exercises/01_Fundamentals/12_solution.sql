@@ -1,5 +1,5 @@
 declare
-   procedure pat_match (
+   procedure pattern_match (
       test_string varchar2,
       pattern     varchar2
    ) is
@@ -11,11 +11,11 @@ declare
       end if;
    end;
 begin
-   pat_match(
+   pattern_match(
       'Blweate',
       'B%a_e'
    );
-   pat_match(
+   pattern_match(
       'Blweate',
       'B%A_E'
    );

@@ -1,14 +1,33 @@
-| Nº     | Descrição | Saída Esperada |
-| ------ | --------- | -------------- |
-| **01** | **Cálculo de Incentivo de Beneficiário** — Crie um bloco PL/SQL anônimo que adicione uma taxa de **10%** ao custo do procedimento com **ID = 2**. Use `SELECT INTO` para armazenar o valor e exiba o novo custo com `DBMS_OUTPUT.PUT_LINE`. | `Custo atualizado: 1100.00`                                            |
-| **02** | **Identificadores Inválidos** — Crie um bloco PL/SQL que demonstre o erro ao referenciar uma coluna inexistente (`NOME_CLIENTE` em vez de `NOME`). Execute com e sem aspas para observar o comportamento.                                   | `Erro: ORA-00904: "NOME_CLIENTE": identificador inválido`              |
-| **03** | **Uso de Palavra Reservada como Identificador** — Crie uma variável com nome idêntico a uma palavra reservada (ex.: `DATE`). Mostre como declarar e usar corretamente com aspas (`"DATE"`) dentro do bloco PL/SQL.                          | `Valor da variável "DATE": 04-NOV-2025`                                |
-| **04** | **Case Sensitivity em Identificadores** — Declare uma variável `"BeneficiarioNome"` e tente acessá-la como `BENEFICIARIONOME` e `beneficiarionome`. Demonstre que PL/SQL diferencia maiúsculas/minúsculas **somente com aspas**.            | `Acesso válido: "BeneficiarioNome"; Acesso inválido: BENEFICIARIONOME` |
-| **05** | **Comentários de Linha e Bloco** — Escreva um bloco PL/SQL que contenha exemplos de comentários de linha (`--`) e de múltiplas linhas (`/* ... */`), realizando um cálculo simples de custo médio.                                          | `Custo médio calculado: 250.00`                                        |
-| **06** | **Declaração de Variáveis** — Crie variáveis de tipos diferentes: `VARCHAR2`, `NUMBER`, e `DATE`. Atribua valores e exiba todos com `DBMS_OUTPUT.PUT_LINE`.                                                                                 | `Nome: João Silva / Custo: 1200.50 / Data: 04-NOV-2025`                |
-| **07** | **Escopo e Visibilidade** — Crie um bloco PL/SQL com blocos **interno e externo**. Declare `v_status := 'Ativo'` no externo e outra `v_status := 'Inativo'` no interno. Mostre que a interna **sombrea** a externa.                         | `Dentro do bloco interno: Inativo / Fora do bloco: Ativo`              |
-| **08** | **Atualização de Dados** — Crie um bloco PL/SQL que aumente em **15%** o valor de `CUSTO` do procedimento com **ID = 10**. Exiba o valor anterior e o novo.                                                                                 | `Custo antigo: 200.00 / Custo atualizado: 230.00`                      |
-| **09** | **Precedência de Operadores** — Crie expressões aritméticas com `+`, `-`, `*`, `/`, e parênteses para mostrar a diferença na ordem de avaliação.                                                                                            | `Sem parênteses: 14 / Com parênteses: 10`                              |
-| **10** | **Operador IS [NOT] NULL com AND** — Crie um procedimento PL/SQL demonstrando o uso de `IS [NOT] NULL` e `AND`. Mostre que `AND` retorna **TRUE** somente se ambos os operandos forem verdadeiros.                                          | `Resultado: TRUE`                                                      |
-| **11** | **Comparações com NULL** — Demonstre o comportamento de `=`, `<>` e `IS NULL` comparando valores nulos. Mostre que apenas `IS NULL` retorna verdadeiro.                                                                                     | `NULL = NULL → FALSO / NULL <> NULL → FALSO / IS NULL → VERDADEIRO`    |
-| **12** | **Operador LIKE** — Escreva um bloco PL/SQL mostrando o uso de `LIKE` com curingas (`%`, `_`) e caractere de escape (`ESCAPE`).                                                                                                             | `Resultado do LIKE: TRUE`  |
+# 🧠 01 - Fundamentos do PL/SQL
+
+Esta seção apresenta exercícios introdutórios de **PL/SQL**, com foco na compreensão de **blocos anônimos**, **escopo de variáveis**, **operadores**, **tratamento de NULL**, e **comentários**.
+
+Cada exercício contém um objetivo claro e a saída esperada no console (`DBMS_OUTPUT`).
+
+---
+
+## 📋 Lista de Exercícios
+
+| Nº | Título | Enunciado Objetivo | Exemplo de Saída Esperada |
+|----|---------|--------------------|----------------|
+| **01** | **Cálculo de Incentivo de Beneficiário** | Buscar o custo do procedimento com `ID = 2`, aplicar um acréscimo de **10%** e exibir o novo valor. | `Custo atualizado: <valor_com_10_porcento>` |
+| **02** | **Identificadores Inválidos** | Demonstrar erro ao tentar acessar uma coluna inexistente (`nome_x`) após um `SELECT` correto. | Erro `ORA-00904: "NOME_X": invalid identifier` |
+| **03** | **Uso de Palavra Reservada como Identificador** | Declarar uma variável chamada `declare` e mostrar que o uso de palavra reservada causa erro de compilação. | Erro de sintaxe: palavra reservada usada como identificador |
+| **04** | **Case Sensitivity em Identificadores** | Declarar variáveis `"Variavel"`, `"variavel"` e `"VARIAVEL"` e imprimir seus valores, mostrando diferença com e sem aspas. | Exibe valores distintos para identificadores entre aspas; acessos sem aspas podem gerar erro |
+| **05** | **Comentários de Linha e Bloco** | Criar variável e incluir comentários (`--` e `/* ... */`), imprimindo o valor da variável. | `saida: 5` |
+| **06** | **Declaração de Variáveis** | Declarar variáveis de diferentes tipos (`VARCHAR2`, `NUMBER`, `INTEGER`, `REAL`, `DATE`) e exibir seus valores. | Exibe todos os valores definidos com `DBMS_OUTPUT.PUT_LINE` |
+| **07** | **Escopo e Visibilidade de Variáveis** | Criar blocos interno e externo com variáveis de mesmo nome e demonstrar o sombreamento (shadowing). | `55`, `2`, `3` |
+| **08** | **Atualização de Dados** | Atualizar o custo do procedimento com `ID = 10`, aplicando aumento de **15%**, exibindo valores antes e depois. | `custo inicial: <valor_antigo>`<br>`custo atual: <valor_novo>` |
+| **09** | **Precedência de Operadores** | Demonstrar como a ordem de precedência e o uso de parênteses alteram o resultado em expressões aritméticas. | Saídas numéricas diferentes conforme a presença de parênteses |
+| **10** | **Operador IS [NOT] NULL e AND** | Demonstrar o comportamento lógico do operador `AND` considerando valores `TRUE`, `FALSE` e `NULL`. | Exibe combinações possíveis de `TRUE`, `FALSE`, `NULL` mostrando resultado de `a AND b` |
+| **11** | **Comparações com NULL** | Demonstrar resultados ao comparar `NULL` usando `=`, `!=` e `IS NULL`. | Mostra que comparações com `NULL` resultam em `indeterminado`; apenas `IS NULL` é verdadeiro |
+| **12** | **Operador LIKE** | Testar padrões com o operador `LIKE`, usando curingas (`%`, `_`) e mostrar se o resultado é verdadeiro ou falso. | `TRUE` / `FALSE` conforme o padrão comparado |
+
+---
+
+## ▶️ Como Executar os Exercícios
+
+1. Certifique-se de estar conectado ao banco Oracle via **SQL Developer**, **SQL*Plus** ou **Docker**.
+2. Ative a exibição de saídas:
+   ```sql
+   SET SERVEROUTPUT ON;
