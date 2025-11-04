@@ -1,0 +1,34 @@
+
+---
+
+### 📄 `.gitignore`
+```gitignore
+# Ignorar arquivos e diretórios temporários
+__pycache__/
+*.pyc
+*.pyo
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Arquivos de banco e Docker
+*.db
+*.dmp
+*.sql~
+*.sql.bak
+*.sql.tmp
+*.sql.old
+docker-data/
+*.pid
+
+# Configurações locais
+.vscode/
+.idea/
+*.DS_Store
+
+# Arquivos compactados
+*.zip
+*.tar
+*.gz
+*.rar

@@ -1,0 +1,23 @@
+services:
+  oracle-db:
+    build: ./oracle
+    
+    container_name: oracle-db
+    
+    ports:
+      - "1521:1521"   # Conexão SQL/JDBC
+
+    environment:
+      ORACLE_PASSWORD: ${ORACLE_PASSWORD}
+      APP_USER: ${ORACLE_APP_USER}
+      APP_USER_PASSWORD: ${ORACLE_APP_PASSWORD}
+    volumes:
+      - ./oracle/init-scripts:/container-entrypoint-initdb.d
+
+    healthcheck:
+      test: ["CMD", "healthcheck.sh"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 5s
+      start_interval: 5s
