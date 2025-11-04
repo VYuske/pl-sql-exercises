@@ -11,18 +11,6 @@ O objetivo é evoluir gradualmente desde os fundamentos até tópicos avançados
 - **Editor**: SQL Developer
 - **Linguagem**: PL/SQL
 
-### 📦 Executar o banco com Docker
-
-```bash
-docker compose up -d
-```
-
-### 🧹 Parar o Container
-
-```bash
-docker compose down -v
-```
-
 ## 📚 Roteiro de Estudos em PL/SQL
 
 | Módulo | Tema                                | Descrição                                                                 |
