@@ -16,6 +16,13 @@ O objetivo é evoluir gradualmente desde os fundamentos até tópicos avançados
 ```bash
 docker compose up -d
 ```
+
+### 🧹 Parar o Container
+
+```bash
+docker compose down -v
+```
+
 ## 📚 Roteiro de Estudos em PL/SQL
 
 | Módulo | Tema                                | Descrição                                                                 |
@@ -37,8 +44,6 @@ docker compose up -d
   Foi a principal base para definição dos módulos e da sequência de estudos.
 
 ### 🔹 Documentação Oficial da Oracle
-- [Oracle® Database PL/SQL Language Reference (versão mais recente)](https://docs.oracle.com/en/database/oracle/oracle-database/19/lnpls/index.html)  
+- [Oracle® Database PL/SQL Language Reference](https://docs.oracle.com/en/database/oracle/oracle-database/21/lnpls/index.html)  
   Guia completo da Oracle sobre a linguagem PL/SQL, cobrindo sintaxe, estruturas, pacotes e boas práticas.
-  
-- [Oracle® Database SQL Language Reference](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/index.html)  
-  Referência para comandos SQL que se integram ao uso de PL/SQL (DDL, DML, funções SQL, joins, etc.).
+
