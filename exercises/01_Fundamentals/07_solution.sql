@@ -1,12 +1,11 @@
-DECLARE
-    var_1 INTEGER := 5;
-    var_2 INTEGER := 2;
-BEGIN
-
-    DECLARE
-        var_1 INTEGER := 55;
-        var_3 INTEGER := 3;
-    BEGIN
+declare
+   var_1 integer := 5;
+   var_2 integer := 2;
+begin
+   declare
+      var_1 integer := 55;
+      var_3 integer := 3;
+   begin
         /*
 
         var_1 vai assumir valor do escopo interno
@@ -15,10 +14,9 @@ BEGIN
         
         */
 
-        DBMS_OUTPUT.PUT_LINE(var_1);
-        DBMS_OUTPUT.PUT_LINE(var_2);
-        DBMS_OUTPUT.PUT_LINE(var_3);
-    END;
-
-END;
+      dbms_output.put_line(var_1);
+      dbms_output.put_line(var_2);
+      dbms_output.put_line(var_3);
+   end;
+end;
 /

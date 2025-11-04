@@ -1,6 +1,6 @@
-DECLARE
-    date NUMBER := 1;
-BEGIN
-    DBMS_OUTPUT.PUT_LINE('saida: '||date);
-END;
+declare
+   date number := 1;
+begin
+   dbms_output.put_line('saida: ' || date);
+end;
 /

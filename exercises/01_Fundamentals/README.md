@@ -56,12 +56,12 @@ Mostre que a variável interna sombrea a externa.
 
 Saída esperada: Exibir 'Inativo' dentro do bloco interno e 'Ativo' fora dele.
 
-## 08 Atualização de Dados (Salário → Custo)
+## 08 Atualização de Dados
 
-Crie um bloco PL/SQL que aumente em 15% o valor do CUSTO do procedimento cujo ID = 122.
+Crie um bloco PL/SQL que aumente em 15% o valor do CUSTO do procedimento cujo ID = 10.
 Após a atualização, exiba o valor anterior e o novo.
 
-Entrada: ID do procedimento (fixo = 122)
+Entrada: ID do procedimento (fixo = 10)
 Saída: Custo antigo e custo atualizado.
 
 ## 09 Precedência de Operadores
@@ -73,34 +73,19 @@ Saída esperada: Imprimir resultados diferentes conforme o uso ou não de parên
 
 ## 10 Operador IS [NOT] NULL com AND
 
-Crie um procedimento que receba um ID_BENEFICIARIO e verifique se ele possui atendimentos e procedimentos associados.
-Use IS NOT NULL e AND para retornar verdadeiro apenas se ambos existirem.
+Escreva um bloco PL/SQL para criar um procedimento usando o operador "IS [NOT] NULL" e mostre que o operador AND retorna VERDADEIRO se e somente se ambos os operandos forem VERDADEIROS.
 
-Saída esperada:
-Mensagem "Beneficiário possui histórico e procedimentos" ou "Dados incompletos".
+Saída esperada: Imprimir TRUE caso ambos os operandos sejam verdadeiros, caso contrário FALSE
 
-## 11 Operador IS [NOT] NULL com OR
-
-Crie um procedimento que receba um ID_BENEFICIARIO e exiba mensagem caso existam atendimentos ou observações registradas, usando OR.
-
-Saída esperada: "Possui algum registro de atendimento" ou "Sem registros".
-
-## 12 Operador NOT
-
-Crie um bloco PL/SQL que verifique o status do atendimento (STATUS = 'CANCELADO') e aplique NOT para exibir "Atendimento válido" se for diferente.
-
-Saída esperada: Impressão do texto "Atendimento válido" ou "Cancelado".
-
-## 13 Comparações com NULL
+## 12 Comparações com NULL
 
 Demonstre o comportamento de comparações =, <> e IS NULL.
 Crie um bloco PL/SQL que tente comparar NULL diretamente e depois usando IS NULL.
 
 Saída esperada: Mostre que NULL = NULL e NULL <> NULL retornam falso, e somente IS NULL é verdadeiro.
 
-## 14 Operador LIKE
+## 13 Operador LIKE
 
-Crie um bloco PL/SQL que selecione os nomes dos procedimentos cujo nome contenha a palavra 'CONSULTA'.
-Demonstre também o uso de caracteres curinga (_ e %) e de caractere de escape (ESCAPE).
+Escreva um bloco PL/SQL para descrever o uso do operador LIKE, incluindo caracteres curinga e um caractere de escape.
 
-Saída esperada: Exibir a lista de procedimentos encontrados e exemplos com escape (\%).
+Saída esperada: Exibir o retorno do operador LIKE (TRUE ou FALSE)
