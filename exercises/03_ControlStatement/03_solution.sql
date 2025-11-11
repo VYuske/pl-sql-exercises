@@ -1,31 +1,31 @@
-DECLARE
-    n INTEGER;
+declare
+   n integer;
 
-    FUNCTION verifica_par_ou_impar(n INTEGER)
-    RETURN VARCHAR2
-    IS
-    BEGIN
-        IF MOD(n, 2) = 0 THEN
-            RETURN 'O numero e par';
-        ELSE
-            RETURN 'O numero e impar';
-        END IF;
-    END;
-BEGIN
-    n := 2;
-    DBMS_OUTPUT.PUT_LINE('n: '||n);
-    DBMS_OUTPUT.PUT_LINE(verifica_par_ou_impar(n));
-
-    n := 5;
-    DBMS_OUTPUT.PUT_LINE('n: '||n);
-    DBMS_OUTPUT.PUT_LINE(verifica_par_ou_impar(n));
-
-    n := 1;
-    DBMS_OUTPUT.PUT_LINE('n: '||n);
-    DBMS_OUTPUT.PUT_LINE(verifica_par_ou_impar(n));
-
-    n := 0;
-    DBMS_OUTPUT.PUT_LINE('n: '||n);
-    DBMS_OUTPUT.PUT_LINE(verifica_par_ou_impar(n));
-END;
+   function verifica_par_ou_impar (
+      n integer
+   ) return varchar2 is
+   begin
+      if mod(
+         n,
+         2
+      ) = 0 then
+         return 'O numero e par';
+      else
+         return 'O numero e impar';
+      end if;
+   end;
+begin
+   n := 2;
+   dbms_output.put_line('n: ' || n);
+   dbms_output.put_line(verifica_par_ou_impar(n));
+   n := 5;
+   dbms_output.put_line('n: ' || n);
+   dbms_output.put_line(verifica_par_ou_impar(n));
+   n := 1;
+   dbms_output.put_line('n: ' || n);
+   dbms_output.put_line(verifica_par_ou_impar(n));
+   n := 0;
+   dbms_output.put_line('n: ' || n);
+   dbms_output.put_line(verifica_par_ou_impar(n));
+end;
 /

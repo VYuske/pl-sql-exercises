@@ -1,16 +1,16 @@
-declare
-   saida varchar2(200);
-begin
+DECLARE
+	saida VARCHAR2(200);
+BEGIN
     -- CORRETO
-   select nome
-     into saida
-     from beneficiario
-    where id = 1;
+	SELECT nome
+	INTO saida
+	FROM beneficiario
+	WHERE id = 1;
     -- ERRADO
-   select nome_x
-     into saida
-     from beneficiario
-    where id = 1;
-   dbms_output.put_line('saida: ' || saida);
-end;
+	SELECT nome_x
+	INTO saida
+	FROM beneficiario
+	WHERE id = 1;
+	dbms_output.put_line('saida: ' || saida);
+END;
 /

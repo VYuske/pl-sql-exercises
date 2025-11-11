@@ -1,32 +1,43 @@
-DECLARE
-   data               DATE := TO_DATE('2023-01-01','YYYY-MM-DD');
-   dia_semana         VARCHAR2(20);
-   eh_final_de_semana BOOLEAN;
+declare
+   data               date := to_date ( '2023-01-01','YYYY-MM-DD' );
+   dia_semana         varchar2(20);
+   eh_final_de_semana boolean;
 
-   PROCEDURE verifica_final_de_semana(
-      data               IN DATE,
-      dia_semana         OUT VARCHAR2,
-      eh_final_de_semana OUT BOOLEAN
-   ) IS
-   BEGIN
-      dia_semana := TO_CHAR(
+   procedure verifica_final_de_semana (
+      data               in date,
+      dia_semana         out varchar2,
+      eh_final_de_semana out boolean
+   ) is
+   begin
+      dia_semana := to_char(
          data,
          'DAY',
          'NLS_DATE_LANGUAGE=PORTUGUESE'
       );
+      eh_final_de_semana :=
+         case
+            when ( trim(dia_semana) in ( 'SÁBADO',
+                                         'DOMINGO' ) ) then
+               true
+            else
+               false
+         end;
+   end verifica_final_de_semana;
 
-      eh_final_de_semana := CASE
-                               WHEN TRIM(dia_semana) IN ('SÁBADO', 'DOMINGO')
-                               THEN TRUE
-                               ELSE FALSE
-                            END;
-   END verifica_final_de_semana;
-
-BEGIN
-   verifica_final_de_semana(data, dia_semana, eh_final_de_semana);
-
-   DBMS_OUTPUT.PUT_LINE('Dia: ' || TRIM(dia_semana));
-   DBMS_OUTPUT.PUT_LINE('É final de semana? ' ||
-      CASE WHEN eh_final_de_semana THEN 'Sim' ELSE 'Não' END);
-END;
+begin
+   verifica_final_de_semana(
+      data,
+      dia_semana,
+      eh_final_de_semana
+   );
+   dbms_output.put_line('Dia: ' || trim(dia_semana));
+   dbms_output.put_line('É final de semana? ' ||
+      case
+         when eh_final_de_semana then
+            'Sim'
+         else
+            'Não'
+      end
+   );
+end;
 /

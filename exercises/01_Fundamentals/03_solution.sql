@@ -1,6 +1,6 @@
-declare
-   declare number := 1;
-begin
-   dbms_output.put_line('saida: ' || declare);
-end;
+DECLARE
+	declare NUMBER := 1;
+BEGIN
+	dbms_output.put_line('saida: ' || declare);
+END;
 /
