@@ -4,7 +4,6 @@ Esta seção apresenta exercícios introdutórios de **PL/SQL**, com foco na com
 
 Cada exercício contém um objetivo claro e a saída esperada no console (`DBMS_OUTPUT`).
 
----
 
 ## 📋 Lista de Exercícios
 

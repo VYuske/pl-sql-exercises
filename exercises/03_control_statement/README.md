@@ -1,3 +1,13 @@
+# ⚙️ 02 - Estruturas de Controle
+
+Esta seção reúne exercícios sobre **estruturas de controle** no PL/SQL, abordando o uso de **condicionais (`IF`, `ELSIF`, `CASE`)** e **estruturas de repetição (`LOOP`, `WHILE`, `FOR`)**.
+
+O foco é praticar a **lógica de decisão** e o **fluxo de execução** dentro dos blocos PL/SQL, aplicando condições e laços para resolver problemas práticos.
+
+Cada exercício apresenta um enunciado detalhado, exemplos de entrada e a saída esperada via `DBMS_OUTPUT`.
+
+
+## 📋 Lista de Exercícios
 | Nº     | Descrição                                                                                                                                                       | **Entrada Esperada**                                      | **Saída Esperada**                                           |
 | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ------------------------------------------------------------ |
 | **1.**  | Escreva um programa PL/SQL para organizar dois números de modo que o menor fique em `num_small` e o maior em `num_large`.                                       | `num_small = 10`, `num_large = 5`                         | `num_small = 5`, `num_large = 10`                            |
@@ -19,4 +29,3 @@
 | **17** | Escreva um programa PL/SQL para imprimir os **números primos entre 1 e 50**.                                                                                    | `intervalo = 1 a 50`                                      | `2 3 5 7 11 ... 47`                                          |
 | **18** | Escreva uma função PL/SQL para verificar se um número é **primo**, usando RETURN dentro de um loop FOR.                                                        | `n = 13`                                                  | `Número 13 é primo.`                                         |
 | **19** | Escreva um programa PL/SQL para criar uma tabela `temp_contagem_planos` com as colunas **Plano** e **Quantidade**, e insira registros da tabela `Beneficiario`, agrupando a quantidade de beneficiarios por plano de saúde. Use For Loop para realizar a inserção.                                                                                  | sem entrada                         | Gerar tabela com os dados pedidos.                        |
-| **20** | Escreva um programa PL/SQL para **inserir uma linha** apenas se o valor obtido de um componente for especificado.                                               | `componente = 'X'`                                        | `Linha inserida com sucesso.`                                |
