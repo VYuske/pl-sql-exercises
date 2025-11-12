@@ -21,17 +21,16 @@ COMMIT;
 -- BENEFICIARIOS
 -- ==========================================
 DECLARE
-    v_planos SYS.ODCIVARCHAR2LIST := SYS.ODCIVARCHAR2LIST('Básico','Premium','Empresarial');
 BEGIN
     FOR i IN 1..300 LOOP
         INSERT INTO BENEFICIARIO (ID, NOME, CPF, DATA_NASCIMENTO, PLANO, ATIVO)
         VALUES (
             i,
-            'Beneficiário ' || i,
-            LPAD(TRUNC(DBMS_RANDOM.VALUE(10000000000, 99999999999)), 11, '0'),
-            TRUNC(SYSDATE - DBMS_RANDOM.VALUE(8000, 25000)),
-            v_planos(TRUNC(DBMS_RANDOM.VALUE(1, 4))),
-            CASE WHEN DBMS_RANDOM.VALUE(0,1) > 0.05 THEN 'S' ELSE 'N' END
+            data_generator_utils.generate_name_random(),
+            data_generator_utils.generate_simple_cpf_random(),
+            data_generator_utils.generate_birthdate_random('TITULAR'),
+            data_generator_utils.generate_medical_plan_random(),
+            data_generator_utils.generate_active_account_random(0.5)
         );
     END LOOP;
 END;
@@ -42,7 +41,6 @@ COMMIT;
 -- DEPENDENTES
 -- ==========================================
 DECLARE
-    v_parentesco SYS.ODCIVARCHAR2LIST := SYS.ODCIVARCHAR2LIST('Filho','Filha','Cônjuge','Pai','Mãe');
     v_id NUMBER := 1;
 BEGIN
     FOR b IN 1..300 LOOP
@@ -51,9 +49,9 @@ BEGIN
             VALUES (
                 v_id,
                 b,
-                'Dependente ' || v_id,
-                v_parentesco(TRUNC(DBMS_RANDOM.VALUE(1,6))),
-                TRUNC(SYSDATE - DBMS_RANDOM.VALUE(2000, 15000))
+                data_generator_utils.generate_name_random(),
+                data_generator_utils.generate_kinship_random(),
+                data_generator_utils.generate_birthdate_random('DEPENDENTE')
             );
             v_id := v_id + 1;
         END LOOP;
@@ -88,9 +86,10 @@ INSERT ALL
     INTO PROCEDIMENTO VALUES (20,'Exame Ginecológico',220,'Exame','S')
 SELECT * FROM dual;
 COMMIT;
--- ==========================================
--- AUTORIZACOES, LOGS E HISTORICO (corrigido)
--- ==========================================
+
+-- ===============================
+-- AUTORIZACOES, LOGS E HISTORICO 
+-- ===============================
 DECLARE
     v_status SYS.ODCIVARCHAR2LIST := SYS.ODCIVARCHAR2LIST('Aprovado','Negado','Pendente');
     v_id NUMBER := 1;
@@ -141,4 +140,4 @@ END;
 /
 COMMIT;
 
-PROMPT '✅ População finalizada com sucesso!'
+PROMPT '✅ Inserção finalizada com sucesso!'
